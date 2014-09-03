@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="nasPersistenceUnit">
+        <class>dk.netarkivet.jpa.ConfigPasswords</class>
+        <class>dk.netarkivet.jpa.ConfigSeedlists</class>
+        <class>dk.netarkivet.jpa.Configurations</class>
+        <class>dk.netarkivet.jpa.Domains</class>
+        <class>dk.netarkivet.jpa.Extendedfield</class>
+        <class>dk.netarkivet.jpa.Extendedfieldtype</class>
+        <class>dk.netarkivet.jpa.Extendedfieldvalue</class>
+        <class>dk.netarkivet.jpa.Frontierreportmonitor</class>
+        <class>dk.netarkivet.jpa.Fullharvests</class>
+        <class>dk.netarkivet.jpa.GlobalCrawlerTrapExpressions</class>
+        <class>dk.netarkivet.jpa.GlobalCrawlerTrapLists</class>
+        <class>dk.netarkivet.jpa.HarvestConfigs</class>
+        <class>dk.netarkivet.jpa.Harvestchannel</class>
+        <class>dk.netarkivet.jpa.Harvestdefinitions</class>
+        <class>dk.netarkivet.jpa.Historyinfo</class>
+        <class>dk.netarkivet.jpa.JobConfigs</class>
+        <class>dk.netarkivet.jpa.Jobs</class>
+        <class>dk.netarkivet.jpa.Ordertemplates</class>
+        <class>dk.netarkivet.jpa.Ownerinfo</class>
+        <class>dk.netarkivet.jpa.Partialharvests</class>
+        <class>dk.netarkivet.jpa.Passwords</class>
+        <class>dk.netarkivet.jpa.Runningjobshistory</class>
+        <class>dk.netarkivet.jpa.Runningjobsmonitor</class>
+        <class>dk.netarkivet.jpa.Schedules</class>
+        <class>dk.netarkivet.jpa.Schemaversions</class>
+        <class>dk.netarkivet.jpa.Seedlists</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/netarchivesuite"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="netarchivesuite"/>
+            <property name="hibernate.connection.password" value="nas123"/>
+        </properties>
+    </persistence-unit>
+</persistence>
