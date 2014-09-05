@@ -2,8 +2,9 @@ package dk.netarkivet.jpa.dao;
 
 
 import dk.netarkivet.jpa.ConfigPasswords;
-import dk.netarkivet.jpa.ConfigPasswordsDao;
-import dk.netarkivet.jpa.Main;
+import dk.netarkivet.dao.ConfigPasswordsDao;
+import dk.netarkivet.jpa.ConfigPasswordsPK;
+import dk.netarkivet.Main;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by csr on 03/09/14.
- */
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(classes = Main.class)
@@ -25,12 +26,19 @@ public class ConfigPasswordsDaoTest {
 
     @Test
     public void doCreate() {
+        ConfigPasswordsDao dao = context.getBean(ConfigPasswordsDao.class);
         ConfigPasswords configPasswords = new ConfigPasswords();
         configPasswords.setConfigId(5432L);
         configPasswords.setPasswordId(1223);
-        ConfigPasswordsDao dao = context.getBean(ConfigPasswordsDao.class);
+        ConfigPasswordsPK pk = new ConfigPasswordsPK();
+        pk.setConfigId(configPasswords.getConfigId());
+        pk.setPasswordId(configPasswords.getPasswordId());
+        if (dao.exists(pk)) {
+            dao.delete(pk);
+        }
+        assertFalse(dao.exists(pk));
         dao.save(configPasswords);
-
+        assertTrue(dao.exists(pk));
     }
 
 }

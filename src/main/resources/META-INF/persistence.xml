@@ -28,11 +28,5 @@
         <class>dk.netarkivet.jpa.Schedules</class>
         <class>dk.netarkivet.jpa.Schemaversions</class>
         <class>dk.netarkivet.jpa.Seedlists</class>
-        <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/netarchivesuite"/>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="netarchivesuite"/>
-            <property name="hibernate.connection.password" value="nas123"/>
-        </properties>
     </persistence-unit>
 </persistence>

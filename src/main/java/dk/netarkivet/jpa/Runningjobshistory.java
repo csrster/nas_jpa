@@ -1,8 +1,10 @@
 package dk.netarkivet.jpa;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 
@@ -10,11 +12,30 @@ import java.sql.Timestamp;
  * Created by csr on 9/2/14.
  */
 @Entity
+@IdClass(RunningjobshistoryPK.class)
 public class Runningjobshistory {
     private long jobid;
+    private String harvestname;
+    private String hosturl;
+    private BigInteger progress;
+    private long queuedfilescount;
+    private long totalqueuescount;
+    private long activequeuescount;
+    private long retiredqueuescount;
+    private long exhaustedqueuescount;
+    private long elapsedseconds;
+    private long alertscount;
+    private long downloadedfilescount;
+    private int currentprocessedkbpersec;
+    private int processedkbpersec;
+    private BigInteger currentprocesseddocspersec;
+    private BigInteger processeddocspersec;
+    private int activetoecount;
+    private int status;
+    private Timestamp tstamp;
 
     @Id
-    @javax.persistence.Column(name = "jobid")
+    @Column(name = "jobid")
     public long getJobid() {
         return jobid;
     }
@@ -23,10 +44,8 @@ public class Runningjobshistory {
         this.jobid = jobid;
     }
 
-    private String harvestname;
-
     @Id
-    @javax.persistence.Column(name = "harvestname")
+    @Column(name = "harvestname")
     public String getHarvestname() {
         return harvestname;
     }
@@ -35,10 +54,8 @@ public class Runningjobshistory {
         this.harvestname = harvestname;
     }
 
-    private String hosturl;
-
     @Basic
-    @javax.persistence.Column(name = "hosturl")
+    @Column(name = "hosturl")
     public String getHosturl() {
         return hosturl;
     }
@@ -47,10 +64,8 @@ public class Runningjobshistory {
         this.hosturl = hosturl;
     }
 
-    private BigInteger progress;
-
     @Basic
-    @javax.persistence.Column(name = "progress")
+    @Column(name = "progress")
     public BigInteger getProgress() {
         return progress;
     }
@@ -59,10 +74,8 @@ public class Runningjobshistory {
         this.progress = progress;
     }
 
-    private long queuedfilescount;
-
     @Basic
-    @javax.persistence.Column(name = "queuedfilescount")
+    @Column(name = "queuedfilescount")
     public long getQueuedfilescount() {
         return queuedfilescount;
     }
@@ -71,10 +84,8 @@ public class Runningjobshistory {
         this.queuedfilescount = queuedfilescount;
     }
 
-    private long totalqueuescount;
-
     @Basic
-    @javax.persistence.Column(name = "totalqueuescount")
+    @Column(name = "totalqueuescount")
     public long getTotalqueuescount() {
         return totalqueuescount;
     }
@@ -83,10 +94,8 @@ public class Runningjobshistory {
         this.totalqueuescount = totalqueuescount;
     }
 
-    private long activequeuescount;
-
     @Basic
-    @javax.persistence.Column(name = "activequeuescount")
+    @Column(name = "activequeuescount")
     public long getActivequeuescount() {
         return activequeuescount;
     }
@@ -95,10 +104,8 @@ public class Runningjobshistory {
         this.activequeuescount = activequeuescount;
     }
 
-    private long retiredqueuescount;
-
     @Basic
-    @javax.persistence.Column(name = "retiredqueuescount")
+    @Column(name = "retiredqueuescount")
     public long getRetiredqueuescount() {
         return retiredqueuescount;
     }
@@ -107,10 +114,8 @@ public class Runningjobshistory {
         this.retiredqueuescount = retiredqueuescount;
     }
 
-    private long exhaustedqueuescount;
-
     @Basic
-    @javax.persistence.Column(name = "exhaustedqueuescount")
+    @Column(name = "exhaustedqueuescount")
     public long getExhaustedqueuescount() {
         return exhaustedqueuescount;
     }
@@ -119,10 +124,8 @@ public class Runningjobshistory {
         this.exhaustedqueuescount = exhaustedqueuescount;
     }
 
-    private long elapsedseconds;
-
     @Id
-    @javax.persistence.Column(name = "elapsedseconds")
+    @Column(name = "elapsedseconds")
     public long getElapsedseconds() {
         return elapsedseconds;
     }
@@ -131,10 +134,8 @@ public class Runningjobshistory {
         this.elapsedseconds = elapsedseconds;
     }
 
-    private long alertscount;
-
     @Basic
-    @javax.persistence.Column(name = "alertscount")
+    @Column(name = "alertscount")
     public long getAlertscount() {
         return alertscount;
     }
@@ -143,10 +144,8 @@ public class Runningjobshistory {
         this.alertscount = alertscount;
     }
 
-    private long downloadedfilescount;
-
     @Basic
-    @javax.persistence.Column(name = "downloadedfilescount")
+    @Column(name = "downloadedfilescount")
     public long getDownloadedfilescount() {
         return downloadedfilescount;
     }
@@ -155,10 +154,8 @@ public class Runningjobshistory {
         this.downloadedfilescount = downloadedfilescount;
     }
 
-    private int currentprocessedkbpersec;
-
     @Basic
-    @javax.persistence.Column(name = "currentprocessedkbpersec")
+    @Column(name = "currentprocessedkbpersec")
     public int getCurrentprocessedkbpersec() {
         return currentprocessedkbpersec;
     }
@@ -167,10 +164,8 @@ public class Runningjobshistory {
         this.currentprocessedkbpersec = currentprocessedkbpersec;
     }
 
-    private int processedkbpersec;
-
     @Basic
-    @javax.persistence.Column(name = "processedkbpersec")
+    @Column(name = "processedkbpersec")
     public int getProcessedkbpersec() {
         return processedkbpersec;
     }
@@ -179,10 +174,8 @@ public class Runningjobshistory {
         this.processedkbpersec = processedkbpersec;
     }
 
-    private BigInteger currentprocesseddocspersec;
-
     @Basic
-    @javax.persistence.Column(name = "currentprocesseddocspersec")
+    @Column(name = "currentprocesseddocspersec")
     public BigInteger getCurrentprocesseddocspersec() {
         return currentprocesseddocspersec;
     }
@@ -191,10 +184,8 @@ public class Runningjobshistory {
         this.currentprocesseddocspersec = currentprocesseddocspersec;
     }
 
-    private BigInteger processeddocspersec;
-
     @Basic
-    @javax.persistence.Column(name = "processeddocspersec")
+    @Column(name = "processeddocspersec")
     public BigInteger getProcesseddocspersec() {
         return processeddocspersec;
     }
@@ -203,10 +194,8 @@ public class Runningjobshistory {
         this.processeddocspersec = processeddocspersec;
     }
 
-    private int activetoecount;
-
     @Basic
-    @javax.persistence.Column(name = "activetoecount")
+    @Column(name = "activetoecount")
     public int getActivetoecount() {
         return activetoecount;
     }
@@ -215,10 +204,8 @@ public class Runningjobshistory {
         this.activetoecount = activetoecount;
     }
 
-    private int status;
-
     @Basic
-    @javax.persistence.Column(name = "status")
+    @Column(name = "status")
     public int getStatus() {
         return status;
     }
@@ -227,10 +214,8 @@ public class Runningjobshistory {
         this.status = status;
     }
 
-    private Timestamp tstamp;
-
     @Id
-    @javax.persistence.Column(name = "tstamp")
+    @Column(name = "tstamp")
     public Timestamp getTstamp() {
         return tstamp;
     }
